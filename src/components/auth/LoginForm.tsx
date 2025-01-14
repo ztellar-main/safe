@@ -8,9 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInUser } from "../../features/userSlice";
 
 type Inputs = {
-  email: string;
+  email?: string;
 
-  password: string;
+  password?: string;
 };
 
 const LoginForm = () => {
