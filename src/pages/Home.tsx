@@ -121,6 +121,18 @@ const Home = ({ socket }: Props) => {
         userVideo.current.srcObject = stream;
       }
     });
+    peer.on("signal", (data) => {
+      console.log("Signal data:", data);
+    });
+
+    peer.on("connect", () => {
+      console.log("Connected!");
+    });
+
+    peer.on("error", (err) => {
+      console.error("Peer error:", err);
+    });
+
     socket.on("call accept", (signal: any) => {
       setCallAccepted(true);
       peer.signal(signal);
