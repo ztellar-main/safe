@@ -186,7 +186,7 @@ export const chatSlice = createSlice({
       state.error = "";
     });
     builder.addCase(sendMessage.fulfilled, (state, action) => {
-      const value: never[] = [...state.messages, action.payload as never];
+      const value: never[] = [...state.messages as never, action.payload as never];
       state.status = "succeeded";
       state.messages = value;
       let conversation = {
