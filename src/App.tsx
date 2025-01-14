@@ -1,47 +1,24 @@
-
-import "./init"
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { io } from "socket.io-client";
-import { useAppSelector } from "./app/store";
-
-// PAGES
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import SocketContexts from "./context/SocketContexts";
-
-// SOCKET IO
-const socket = io(import.meta.env.VITE_BASE_SERVER);
+import { useEffect } from "react";
+import "./App.css";
+import Peer from "simple-peer";
 
 function App() {
-  const { user } = useAppSelector((e: any) => e?.user);
-  const { token } = user;
-
+  useEffect(() => {
+    console.log(new Peer({}));
+  }, []);
   return (
-    <div className="dark">
-      <SocketContexts.Provider value={socket}>
-        <Router>
-          <Routes>
-            <Route
-              path="/"
-              element={token ? <Home /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/login"
-              element={!token ? <Login /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/register"
-              element={!token ? <Register /> : <Navigate to="/" />}
-            />
-          </Routes>
-        </Router>
-      </SocketContexts.Provider>
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        ></a>
+      </header>
     </div>
   );
 }
