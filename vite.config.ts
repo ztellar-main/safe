@@ -27,8 +27,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      process: 'rollup-plugin-node-polyfills/polyfills/process-es6',
-      Buffer: 'rollup-plugin-node-polyfills/polyfills/buffer-es6',
+      process: "rollup-plugin-node-polyfills/polyfills/process-es6",
+      Buffer: "rollup-plugin-node-polyfills/polyfills/buffer-es6",
     },
   },
   build: {
@@ -36,6 +36,9 @@ export default defineConfig({
     target: "esnext",
     rollupOptions: {
       plugins: [rollupNodePolyFill()],
+      output: {
+        manualChunks: undefined, // Disable code splitting
+      },
     },
   },
 });
