@@ -28,10 +28,12 @@ export default defineConfig({
   resolve: {
     alias: {
       stream: "stream-browserify",
-      buffer: "buffer",
+      buffer: "rollup-plugin-node-polyfills/polyfills/buffer-es6",
+      process: "rollup-plugin-node-polyfills/polyfills/process-es6",
     },
   },
   build: {
+    target: "esnext",
     rollupOptions: {
       plugins: [rollupNodePolyFill()],
     },
