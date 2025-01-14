@@ -168,8 +168,9 @@ const Home = ({ socket }: Props) => {
       userVideo.current.srcObject = null;
     }
     setShow(false);
-    // setCall({ ...call, callEnded: true, receivingCall: false });
+    setCall({ ...call, callEnded: true, receivingCall: false });
     connectionRef.current?.destroy();
+    window.location.reload();
   };
 
   // join user into the socket io
