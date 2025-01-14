@@ -11,10 +11,10 @@ import Picture from "./Picture";
 import axios from "axios";
 
 type Inputs = {
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
   status?: string;
-  password: string;
+  password?: string;
 };
 
 const RegisterForm = () => {
